@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (ctx)=> Products(),
+      create: (ctx) => Products(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Shop',
@@ -24,7 +24,6 @@ class MyApp extends StatelessWidget {
             primaryColor: Color.fromRGBO(214, 173, 96, 1),
             canvasColor: Color.fromRGBO(244, 235, 208, 1),
             fontFamily: "Raleway",
-            
             primarySwatch: Colors.blue,
             visualDensity: VisualDensity.adaptivePlatformDensity,
             textTheme: ThemeData.light().textTheme.apply(
@@ -34,7 +33,7 @@ class MyApp extends StatelessWidget {
             ),
         home: ProductOverviewHomeScreen(),
         routes: {
-          ProductDetailsScreen.routeName: (ctx)=>ProductDetailsScreen(), 
+          ProductDetailsScreen.routeName: (ctx) => ProductDetailsScreen(),
         },
       ),
     );
