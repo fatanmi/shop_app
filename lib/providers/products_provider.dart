@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'productTxt.dart';
+import 'dart:developer';
 
 import 'product.dart';
 
@@ -7,33 +8,19 @@ class Products with ChangeNotifier {
   List _items = ProductTxt().loadedProductTxt;
 
   bool _showFavoriteOnly = false;
-  List<Product> get items {
-    if (_showFavoriteOnly) {
-      print("In Favorite Only");
-      print([..._items.where((prod) => prod.isFavorite == _showFavoriteOnly)]);
-      return [..._items.where((prod) => prod.isFavorite == _showFavoriteOnly)];
-      // notifyListeners();
 
-    }
-    notifyListeners();
-    print("In All Only");
+  List<Product> get items {
+    
+
     return [..._items];
   }
 
   void addProduct() {
-    // _items.add(value);
     notifyListeners();
   }
 
-  void showFavOnly() {
-    _showFavoriteOnly = true;
-    notifyListeners();
-    // _showFavoriteOnly = false;
-  }
-
-  void showAll() {
-    _showFavoriteOnly = false;
-    notifyListeners();
+  List<Product> get favouritItems {
+    return [..._items.where((prodItems) => prodItems.isFavorite)];
   }
 
   Product findProductById(String id) {
